@@ -1,14 +1,17 @@
 <?php
 namespace App\Http\Controllers;
+use App\Api\ServiceApi\ServiceApi;
 use App\Api\Tag\TagService;
 use App\ApiHelper\ApiHelper;
 use Illuminate\Http\Request;
 class TagController extends Controller
 {
     protected TagService $tagService;
-    public function __construct(TagService $tagService)
+    protected ServiceApi $serviceApi;
+    public function __construct(TagService $tagService, ServiceApi $serviceApi)
     {
         $this->tagService = $tagService;
+        $this->serviceApi = $serviceApi;
     }
     public function index()
     {
@@ -20,11 +23,12 @@ class TagController extends Controller
     }
     public function createTag(Request $request)
     {
-        return $this->tagService->createTag($request->all());
+        return $this->serviceApi->upload($request->file('image'));
+//        return $this->tagService->createTag($request->all());
     }
     public function updateTag($id, Request $request)
     {
-        return $this->tagService->updateTag($id, $request->all());
+        $this->tagService->updateTag($id, $request->all());
     }
     public function deleteTag($id): \Illuminate\Http\JsonResponse
     {

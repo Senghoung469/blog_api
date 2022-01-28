@@ -8,6 +8,8 @@ use App\Api\Category\CategoryRepository;
 use App\Api\Category\CategoryRepositoryImp;
 use App\Api\Category\CategoryService;
 use App\Api\Category\CategoryServiceImp;
+use App\Api\ServiceApi\ServiceApi;
+use App\Api\ServiceApi\ServiceApiImp;
 use App\Api\Tag\TagRepository;
 use App\Api\Tag\TagRepositoryImp;
 use App\Api\Tag\TagService;
@@ -35,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CategoryService::class, CategoryServiceImp::class);
         $this->app->bind(TagRepository::class, TagRepositoryImp::class);
         $this->app->bind(TagService::class, TagServiceImp::class);
+        $this->app->bind(ServiceApi::class, ServiceApiImp::class);
     }
 
     /**
