@@ -26,4 +26,10 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
     Route::post('/tag', [\App\Http\Controllers\TagController::class, 'createTag']);
     Route::post('/tag/{id}', [\App\Http\Controllers\TagController::class, 'updateTag']);
     Route::delete('/tag/{id}', [\App\Http\Controllers\TagController::class, 'deleteTag']);
+    // Post
+    Route::get('/post', [\App\Http\Controllers\PostController::class, 'index']);
+    Route::get('/post/{id}', [\App\Http\Controllers\PostController::class, 'getPostById']);
+    Route::post('/post', [\App\Http\Controllers\PostController::class, 'createPost']);
+    // Upload
+    Route::post('/uploader', [\App\Http\Controllers\ServiceController::class, 'uploader']);
 });

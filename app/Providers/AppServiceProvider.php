@@ -8,6 +8,10 @@ use App\Api\Category\CategoryRepository;
 use App\Api\Category\CategoryRepositoryImp;
 use App\Api\Category\CategoryService;
 use App\Api\Category\CategoryServiceImp;
+use App\Api\Post\PostRepository;
+use App\Api\Post\PostRepositoryImp;
+use App\Api\Post\PostService;
+use App\Api\Post\PostServiceImp;
 use App\Api\ServiceApi\ServiceApi;
 use App\Api\ServiceApi\ServiceApiImp;
 use App\Api\Tag\TagRepository;
@@ -19,7 +23,6 @@ use App\Api\User\UserRepositoryImp;
 use App\Api\User\UserService;
 use App\Api\User\UserServiceImp;
 use Illuminate\Support\ServiceProvider;
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -38,6 +41,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(TagRepository::class, TagRepositoryImp::class);
         $this->app->bind(TagService::class, TagServiceImp::class);
         $this->app->bind(ServiceApi::class, ServiceApiImp::class);
+        $this->app->bind(PostRepository::class, PostRepositoryImp::class);
+        $this->app->bind(PostService::class, PostServiceImp::class);
     }
 
     /**

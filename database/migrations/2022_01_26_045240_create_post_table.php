@@ -20,7 +20,7 @@ class CreatePostTable extends Migration
             $table->string('description')->nullable();
             $table->string('thumbnail');
             $table->json('tag_id')->nullable();
-            $table->string('content');
+            $table->text('content');
             $table->boolean('status');
             $table->timestamps();
         });
