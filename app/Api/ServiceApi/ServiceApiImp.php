@@ -37,7 +37,7 @@ class ServiceApiImp implements ServiceApi
             $fileName = Str::uuid() . '.' . $extensionName;
             $file = file($data->path());
             Storage::disk('public')->put($this->uploadPath . '/' . $fileName, $file);
-            die($fileName);
+            return response()->json($fileName, 200);
 
         } catch (Exception $ex) {
             error_log($ex->getMessage());
