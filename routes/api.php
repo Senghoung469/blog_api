@@ -6,6 +6,9 @@ Route::fallback(function () {
 });
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
     // Users
+    Route::get('/user/active', function() {
+        return response()->json(request()->user());
+    });
     Route::get('/users', [\App\Http\Controllers\UserController::class, 'index']);
     Route::get('/user/{id}', [\App\Http\Controllers\UserController::class, 'getUserById']);
     Route::post('/user', [\App\Http\Controllers\UserController::class, 'createUser']);
@@ -27,7 +30,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
     Route::post('/tag/{id}', [\App\Http\Controllers\TagController::class, 'updateTag']);
     Route::delete('/tag/{id}', [\App\Http\Controllers\TagController::class, 'deleteTag']);
     // Post
-    Route::get('/post', [\App\Http\Controllers\PostController::class, 'index']);
+    Route::get('/posts', [\App\Http\Controllers\PostController::class, 'index']);
     Route::get('/post/{id}', [\App\Http\Controllers\PostController::class, 'getPostById']);
     Route::post('/post', [\App\Http\Controllers\PostController::class, 'createPost']);
     // Upload

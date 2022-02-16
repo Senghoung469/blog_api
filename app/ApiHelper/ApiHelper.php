@@ -51,12 +51,12 @@ class ApiHelper
 
     public static function responseCreateJson($data):JsonResponse
     {
-        return self::responseSuccessWithData("record has been created successfully", $data);
+        return self::responseSuccessWithData("Record has been created successfully", $data);
     }
 
     public static function responseUpdateJson($data):JsonResponse
     {
-        return self::responseSuccessWithData("record has been updated successfully", $data);
+        return self::responseSuccessWithData("Record has been updated successfully", $data);
     }
 
     public static function responseDelJson():JsonResponse
@@ -64,7 +64,7 @@ class ApiHelper
         return response()->json(
             [
                 'success' => true,
-                'message' => "record has been deleted successfully"
+                'message' => "Record has been deleted successfully"
             ]
         );
     }

@@ -23,8 +23,8 @@ class TagController extends Controller
     }
     public function createTag(Request $request)
     {
-        return $this->serviceApi->upload($request->file('image'));
-//        return $this->tagService->createTag($request->all());
+        $tag = $this->tagService->createTag($request->all());
+        return ApiHelper::responseCreateJson($tag);
     }
     public function updateTag($id, Request $request)
     {
